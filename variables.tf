@@ -1,13 +1,3 @@
-variable "aws_access_key" {
-    description = "AWS_ACCESS_KEY_ID"
-    #default = "AKIA..."
-}
-
-variable "aws_secret_key" {
-    description = "AWS_SECRET_ACCESS_KEY"
-    #default = ""
-}
-
 variable "public_key" {
     description = "Name of the SSH keypair to use in AWS"
     #default = "ssh-rsa ..."
