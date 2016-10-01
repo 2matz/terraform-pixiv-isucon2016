@@ -84,11 +84,11 @@ resource "aws_security_group" "default" {
 }
 
 resource "aws_spot_instance_request" "web" {
-  spot_price           = "${lookup(var.spot_prices, var.instance_types[web])}"
+  spot_price           = "${lookup(var.spot_prices, var.instance_types["web"])}"
   wait_for_fulfillment = "${var.wait_for_fulfillment}"
 
-  ami                         = "${var.amis[web]}"
-  instance_type               = "${var.instance_types[web]}"
+  ami                         = "${var.amis["web"]}"
+  instance_type               = "${var.instance_types["web"]}"
   key_name                    = "${aws_key_pair.default.key_name}"
   vpc_security_group_ids      = ["${aws_security_group.default.id}"]
   subnet_id                   = "${aws_subnet.default.id}"
@@ -100,11 +100,11 @@ resource "aws_spot_instance_request" "web" {
 }
 
 resource "aws_spot_instance_request" "bench" {
-  spot_price           = "${lookup(var.spot_prices, var.instance_types[bench])}"
+  spot_price           = "${lookup(var.spot_prices, var.instance_types["bench"])}"
   wait_for_fulfillment = "${var.wait_for_fulfillment}"
 
-  ami                         = "${var.amis[bench]}"
-  instance_type               = "${var.instance_types[bench]}"
+  ami                         = "${var.amis["bench"]}"
+  instance_type               = "${var.instance_types["bench"]}"
   key_name                    = "${aws_key_pair.default.key_name}"
   vpc_security_group_ids      = ["${aws_security_group.default.id}"]
   subnet_id                   = "${aws_subnet.default.id}"
